@@ -9,6 +9,10 @@ NLP에서 흔히하는 전처리는 소문자 변환, 앞뒤 필요없는 띄어
 
 
 def normalize(input_string):
+    string_list = input_string.split()
+    for i in range(len(string_list)):
+        string_list[i]=string_list[i].lower()
+
     """
      인풋으로 받는 스트링에서 정규화된 스트링을 반환함
      아래의 요건들을 충족시켜야함
@@ -33,11 +37,15 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
-    return normalized_string
+    return ' '.join(string_list)
 
 
 def no_vowels(input_string):
+    list_=['a','e','i','o','u',"A","E","I","O","U"]
+    answer=''
+    for x in input_string:
+        if x not in list_:
+            answer+=x
     """
     인풋으로 받는 스트링에서 모든 모음 (a, e, i, o, u)를 제거시킨 스트링을 반환함
 
@@ -58,5 +66,4 @@ def no_vowels(input_string):
             >>> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
-    return no_vowel_string
+    return answer
